@@ -89,7 +89,7 @@ def main():
         debug("yp = {}".format(hidden_tokens['yp']))
 
     # Getting yj    
-    r = GET(s, BASE_URL + 'ver/5.0/webmail.js')
+    r = GET(s, BASE_URL + 'ver/5.6/webmail.js')
     debug("Getting hidden token... ", end='')
     found = re.findall(r'&yj=([a-zA-Z0-9]*)', r.text)
     if not found:
@@ -105,7 +105,7 @@ def main():
 
     # Checking inbox
     url = BASE_URL+'en/inbox?login='+mail+'&p=1&d=&ctrl=&yp='
-    url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.0&r_c=&id='
+    url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.6&r_c=&id='
     s.cookies.set("ytime", datetime.now().strftime('%H:%M'), domain='.yopmail.com')
     r = GET(s, url)
 
@@ -143,7 +143,7 @@ def main():
     # --delete mail_number
     elif args.delete is not None and args.delete < len(inbox):
         url = BASE_URL+'en/inbox?login='+mail+'&p=1&d='+inbox[args.delete]['id']+'&ctrl=&yp='
-        url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.0&r_c=&id='
+        url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.6&r_c=&id='
         r = GET(s, url)
         del inbox[args.delete]
 
@@ -151,7 +151,7 @@ def main():
     elif args.delete_all:
         for i in range(0, len(inbox)):
             url = BASE_URL+'en/inbox?login='+mail+'&p=1&d='+inbox[i]['id']+'&ctrl=&yp='
-            url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.0&r_c=&id='
+            url = url + hidden_tokens['yp']+'&yj='+hidden_tokens['yj']+'&v=5.6&r_c=&id='
             GET(s, url)
         inbox.clear()
     

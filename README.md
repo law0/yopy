@@ -8,9 +8,16 @@ pip3 install beautifulsoup4
 ```
 Other requirements should already be installed in a standard linux python3 environment
 
+## Installation
+```
+git clone https://github.com/law0/yopy.git
+```
+
 ## Usage
 
 ```
+# In yopy git directory
+
 ./yopy.py --help
 usage: yopy.py [-h] [-v] [--show number] [--delete number] [--delete-all] [--send] mail
 
