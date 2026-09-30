@@ -4,7 +4,7 @@ A one file script to check, delete or write yopmail mails from command line
 
 ## Requirement
 ```
-pip3 install beautifulsoup4
+pip3 install beautifulsoup4 requests
 ```
 Other requirements should already be installed in a standard linux python3 environment
 
